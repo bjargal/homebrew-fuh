@@ -29,6 +29,8 @@ class Fuh < Formula
       "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib -lfreetype -lfontconfig -lharfbuzz"
     bin.install "src/fuh"
     (share/"fuh").install Dir["share/feh/*"]
+    # rename feh -> fuh in man page
+    inreplace "man/feh.1", /\bfeh\b/, "fuh"
     man1.install "man/feh.1" => "fuh.1"
   end
 
