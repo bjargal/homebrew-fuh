@@ -28,7 +28,7 @@ class Fuh < Formula
               "-DVERSION='\"1.1.0\"'",
       "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib -lfreetype -lfontconfig -lharfbuzz"
     bin.install "src/fuh"
-    share.install "share/feh" => "fuh"
+    (share/"fuh").install Dir["share/feh/*"]
   end
 
   test do
