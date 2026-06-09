@@ -27,6 +27,8 @@ class Fuh < Formula
               "-DPACKAGE='\"fuh\"' " \
               "-DVERSION='\"1.1.0\"'",
       "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib -lfreetype -lfontconfig -lharfbuzz"
+    # list what was built
+    system "find", "src", "-type", "f", "-perm", "+111"
     bin.install "src/fuh"
     (share/"fuh").install Dir["share/feh/*"]
   end
