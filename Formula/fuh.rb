@@ -1,8 +1,8 @@
 class Fuh < Formula
   desc "UTF-8 capable fork of feh image viewer"
   homepage "https://github.com/bjargal/fuh"
-  url "https://github.com/bjargal/fuh/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "3e2b50d612693258d683eb637644fa809dfb325ee5d31b302252cae367b27656"
+  url "https://github.com/bjargal/fuh/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "2620e267e861bfcbfae2fbc0a70bd581c5884cf9bc6b76bf5111d15cad7038e9"
   license "MIT"
 
   depends_on "freetype"
@@ -25,10 +25,11 @@ class Fuh < Formula
               "-I#{HOMEBREW_PREFIX}/include " \
               "-DPREFIX='\"#{prefix}\"' " \
               "-DPACKAGE='\"fuh\"' " \
-              "-DVERSION='\"1.1.1\"'",
+              "-DVERSION='\"1.1.2\"'",
       "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib -lfreetype -lfontconfig -lharfbuzz"
     bin.install "src/fuh"
     (share/"fuh").install Dir["share/feh/*"]
+    man1.install "man/feh.1" => "fuh.1"
   end
 
   test do
